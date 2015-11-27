@@ -36,6 +36,7 @@ group :development do
 end
 
 gem 'react-rails',       '~> 1.3'
+gem 'devise'
 
 group :assets do
   gem 'ejs',               '~> 1.1.1'
