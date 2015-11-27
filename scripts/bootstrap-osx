@@ -1,0 +1,47 @@
+#!/bin/bash
+
+set -o nounset
+set -o errexit
+
+echo "Ensuring Homebrew..."
+if ! which -s brew; then
+  echo "Installing Homebrew..."
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+  echo "Updating Homebrew..."
+  brew update
+fi
+
+echo "Installing packages..."
+brew install rbenv imagemagick postgresql qt redis
+
+echo "Linking plist files..."
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+
+echo "Loading PostgreSQL and Redis..."
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+
+echo "Ensuring ruby version..."
+rbenv install --skip-existing `cat .ruby-version`
+
+echo "Installing gems..."
+gem install bundler
+rbenv rehash
+bundle install --path=vendor
+
+echo "Ensuring .env file..."
+if [ ! -f .env ]; then
+  echo "Copying .env.sample file..."
+  cp .env.sample .env
+fi
+
+echo "Ensuring test database..."
+if ! psql real-estate-events_test -c '\q' > /dev/null 2>&1; then
+  echo "Creating test database..."
+  createdb real-estate-events_test
+fi
+
+echo "Loading database schema into test database"
+RAILS_ENV=test ./bin/rake db:schema:load
