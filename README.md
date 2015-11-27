@@ -61,6 +61,12 @@ For OSX:
 $ ./script/bootstrap-osx
 ```
 
+### Rails Testing (Rspec)
+
+```bash
+$ bundle exec rspec
+```
+
 ### Javascript (Konacha)
 
 Javascript tests are written in Mocha using the Chai assertion library, and are
