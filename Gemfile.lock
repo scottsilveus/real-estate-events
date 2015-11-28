@@ -43,8 +43,6 @@ GEM
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     bcrypt (3.1.10)
-    binding_of_caller (0.7.2)
-      debug_inspector (>= 0.0.1)
     builder (3.2.2)
     capybara (2.5.0)
       mime-types (>= 1.16)
@@ -66,7 +64,6 @@ GEM
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     database_cleaner (1.5.1)
-    debug_inspector (0.0.2)
     devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -221,11 +218,6 @@ GEM
     vcr (2.9.3)
     warden (1.2.3)
       rack (>= 1.0)
-    web-console (2.2.1)
-      activemodel (>= 4.0)
-      binding_of_caller (>= 0.7.2)
-      railties (>= 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
     webmock (1.22.3)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -266,7 +258,6 @@ DEPENDENCIES
   turbolinks
   uglifier (~> 2.7)
   vcr (~> 2.9)
-  web-console (~> 2.0)
   webmock (~> 1.9)
 
 BUNDLED WITH
