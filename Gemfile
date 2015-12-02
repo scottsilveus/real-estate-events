@@ -30,22 +30,15 @@ group :development, :test do
   gem 'konacha', '~> 3.7'
 end
 
-group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-end
-
 gem 'react-rails',       '~> 1.3'
-
-group :assets do
-  gem 'ejs',               '~> 1.1.1'
-  gem 'jquery-rails',      '~> 4.0'
-  gem 'jquery-ui-rails',   '~> 5.0'
-  gem 'lodash-rails',      '~> 3.10'
-  gem 'quiet_assets',      '~> 1.1'
-  gem 'sass',              '~> 3.2'
-  gem 'uglifier',          '~> 2.7'
-end
+gem 'devise'
+gem 'jquery-rails',      '~> 4.0'
+gem 'ejs',               '~> 1.1.1'
+gem 'jquery-ui-rails',   '~> 5.0'
+gem 'lodash-rails',      '~> 3.10'
+gem 'quiet_assets',      '~> 1.1'
+gem 'sass',              '~> 3.2'
+gem 'uglifier',          '~> 2.7'
 
 group :test do
   gem 'capybara',           '~> 2.4', require: false

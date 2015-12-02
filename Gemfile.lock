@@ -42,8 +42,7 @@ GEM
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
-    binding_of_caller (0.7.2)
-      debug_inspector (>= 0.0.1)
+    bcrypt (3.1.10)
     builder (3.2.2)
     capybara (2.5.0)
       mime-types (>= 1.16)
@@ -65,7 +64,13 @@ GEM
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     database_cleaner (1.5.1)
-    debug_inspector (0.0.2)
+    devise (3.5.2)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     diff-lcs (1.2.5)
     ejs (1.1.1)
     email_spec (1.6.0)
@@ -114,6 +119,7 @@ GEM
     multi_json (1.11.2)
     nokogiri (1.6.6.4)
       mini_portile (~> 0.6.0)
+    orm_adapter (0.5.0)
     pg (0.18.4)
     poltergeist (1.8.1)
       capybara (~> 2.1)
@@ -162,6 +168,8 @@ GEM
       execjs
       rails (>= 3.2)
       tilt
+    responders (2.1.0)
+      railties (>= 4.2.0, < 5)
     rspec-activemodel-mocks (1.0.2)
       activemodel (>= 3.0)
       activesupport (>= 3.0)
@@ -208,11 +216,8 @@ GEM
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     vcr (2.9.3)
-    web-console (2.2.1)
-      activemodel (>= 4.0)
-      binding_of_caller (>= 0.7.2)
-      railties (>= 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
+    warden (1.2.3)
+      rack (>= 1.0)
     webmock (1.22.3)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -230,6 +235,7 @@ DEPENDENCIES
   capybara (~> 2.4)
   coffee-rails (~> 4.1.0)
   database_cleaner (~> 1.0)
+  devise
   ejs (~> 1.1.1)
   email_spec (~> 1.6)
   factory_girl_rails (~> 4.5)
@@ -252,7 +258,6 @@ DEPENDENCIES
   turbolinks
   uglifier (~> 2.7)
   vcr (~> 2.9)
-  web-console (~> 2.0)
   webmock (~> 1.9)
 
 BUNDLED WITH
